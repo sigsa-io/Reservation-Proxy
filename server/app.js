@@ -12,7 +12,7 @@ const apiProxy = httpProxy.createProxyServer();
 
 const menus = 'http://ec2-18-224-190-236.us-east-2.compute.amazonaws.com:8080';
 const reservations = 'http://ec2-52-15-204-30.us-east-2.compute.amazonaws.com:3003';
-const reviews = 'http://localhost:3004';
+const reviews = 'http://ec2-54-234-229-23.compute-1.amazonaws.com:3004';
 
 app.set('port', 3000);
 
@@ -28,7 +28,6 @@ app.all('/bookingCount/:restaurantId', (req, res) => {
 });
 
 app.all('/restaurantName/:restaurantId', (req, res) => {
-  console.log(req)
   apiProxy.web(req, res, {target: reservations});
 });
 
